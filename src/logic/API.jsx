@@ -1,16 +1,17 @@
-import Config from "./config.json";
+import Config from "./database/storage/config.json";
 import axios from "axios";
 import { discoverNupnp } from "./Discover"
 
 export const config = Config;
 
-export var variables = {
+export let variables = {
   bridgeIPs: [], // ! is a promise idk how to save just the data
   lightUrls: []
 };
 
 export const init = () => {
-  variables.bridgeIPs = discoverNupnp(config);
+    let conf = config.api.auth.url.meethue;
+    variables.bridgeIPs = discoverNupnp(conf)
 };
 
 
