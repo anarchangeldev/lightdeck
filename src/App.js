@@ -10,6 +10,7 @@ import { init, variables } from './logic/API';
 
 function App() {
   init();
+  console.log(variables.bridgeIPs)
   
   return (
     <div className="App">
