@@ -1,7 +1,6 @@
 import './App.css';
-import { init, variables } from './logic/API';
-import React, { useState } from 'react'
-
+import React, { useEffect } from 'react'
+import { logIn } from './custom/Backend'
 /*
   aaa
   ! USE MUI - Material UI [mui.com] 
@@ -11,9 +10,10 @@ import React, { useState } from 'react'
 */
 
 function App() {
-  init();
-  console.log(variables.bridgeIPs)
-  
+  useEffect(() => {
+    logIn()
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
