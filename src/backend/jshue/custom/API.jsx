@@ -25,3 +25,20 @@ import { _nupnp } from "./Discover";
           console.error(err);
       }
   }
+
+  export const rainbow = () => {
+    let dev = read().config.dev
+    let state = {
+        on: true,
+        bri: 254,
+        hue: 1000,
+        sat: 254
+    }
+    for (let i = 0; i <= 65535; i+=100) {
+        console.log(i)
+        if(i === 65500) i = 0;
+        state.hue = i
+        await new Promise(resolve => setTimeout(resolve, 500))
+        console.log(await testLights(dev.bridge.ip, dev.credentials.username, state))
+    }
+  }

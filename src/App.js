@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     
     //todo
-    api.getSimBridge()
 
   }, []) 
   // runs only once, to repeat on each call remove [] or add variables to it to run only when they change
