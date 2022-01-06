@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const _simulator = () => {
-  let data = require('../../database/Database.jsx').read().config.dev.bridge.simulated
+  let data = require('../database/Database.jsx').read().config.dev.bridge.simulated
 
   let url = data.url + ':' + data.port + '/api/'
   console.log(url);
@@ -23,6 +23,25 @@ export const _nupnp = async(url) => {
       });
     });
 };
+
+export const jshueDiscover = async(jshue) => {
+  let _bridges
+
+  await jshue.discover().then((bridges) => {
+    if(bridges.length === 0) {
+      console.error("No bridges found")
+      return new Error("No bridges found")
+    }
+    bridges.forEach((bridge) => {
+      console.log(bridge);
+    })
+
+    _bridges = bridges
+
+  }).catch((error) => console.error(error))
+  
+  return _bridges
+}
 
 
 
