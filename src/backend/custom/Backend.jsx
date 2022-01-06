@@ -1,5 +1,5 @@
 import * as api from './logic/API'
-import {read, write} from './database/Database.jsx'
+import {read, write} from '../database/Database'
 
 export async function logIn() {
     let dev = read().config.dev

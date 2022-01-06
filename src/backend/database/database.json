@@ -5,10 +5,8 @@
 
     "config": {
         "url": {
-            "default": "http://192.168.0.136/api/",
             "discover": "https://discovery.meethue.com/",
-            "meethue": "https://api.meethue.com/",
-            "state": "/lights/0/state"
+            "meethue": "https://api.meethue.com/"
           },
         
         "dev": {
@@ -20,25 +18,19 @@
               }
             },
             "bridge": {
-              "ip": "192.168.0.136",
-              "id": "ecb5fafffe07db63",
-              "port": 443
+              "default": {
+                "ip": "192.168.0.136",
+                "id": "ecb5fafffe07db63",
+                "port": 443
+              },
+              "simulated": {
+                "url": "http://localhost",
+                "port": 8000,
+                "ip": "",
+                "id": ""
+              }
             }
-        },
-        
-        "template": {
-            "client": {
-                "username": null,
-                "remote": {
-                    "token": null,
-                    "clientID": null
-                }
-            },
-            "bridge": {        
-                "ip": null,
-                "id": null,
-                "port": null
-            }
+            
         },
 
         "capabilities": {
