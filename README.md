@@ -2,7 +2,6 @@
 
 this is a remote control app for [Philips Hue](https://www.philips-hue.com/en-us) lights.
 
-
 ## Usage
 
 TODO
@@ -14,7 +13,7 @@ TODO
 
 ### `idk2`
 
-ipsum
+lorem ipsum
 
 ## Learn More
 
