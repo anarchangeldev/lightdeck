@@ -16,8 +16,6 @@ TODO
 
 ipsum
 
-l wouldn't be useful if you couldn't customize it when you are ready for it.
-
 ## Learn More
 
 dolor sit amet
