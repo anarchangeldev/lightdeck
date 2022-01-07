@@ -1,8 +1,9 @@
 import './App.css';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as api from './backend/Backend'
 import BridgeSelect from'./components/BridgeSelect'
 /*
+  ? animace Framer library
   ? bridge emulator: [http://steveyo.github.io/Hue-Emulator/] 
   ? RGB to CIE (x, y): [https://github.com/Shnoo/js-CIE-1931-rgb-color-converter]
   ! JSHUE [https://github.com/blargoner/jshue/releases] //developed on 2.1.1
@@ -10,25 +11,26 @@ import BridgeSelect from'./components/BridgeSelect'
 
   ! USE MUI - Material UI [https://mui.com] 
 */
-let bridges = []
 
 function App() {
-  bridges = api.discover()
+  const [bridges, setBridges ] = useState([])
+  
+  
   useEffect(async() => {
+    setBridges(await api.discover('sim'))
     
-    //todo
     //bridges = await api.discover()
     console.log(bridges);
 
   }, []) 
+  
   // runs only once, to repeat on each call remove [] or add variables to it to run only when they change
-  bridges = api.discover()
   return (
     <div className="App">
       <header className="App-header">
       idk
       </header>
-      <BridgeSelect bridges={ bridges }/>
+      <BridgeSelect bridges={ [bridges] }/>
     </div>
   );
 }

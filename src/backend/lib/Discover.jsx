@@ -1,14 +1,16 @@
 import axios from "axios";
 
-export const _simulator = () => {
+export const _simulator = async() => {
   let data = require('../database/Database.jsx').read().config.dev.bridge.simulated
 
-  let url = data.url + ':' + data.port + '/api/'
-  console.log(url);
-  let response = axios.get(url)
-
-  console.log(response);
-  return response
+  let url = data.url + ':' + data.port + '/api/newdeveloper'
+  await axios.get(url).then((_data) => {
+      //console.log(_data)
+      data.id = _data.data.config.bridgeid
+      data.ip = _data.data.config.gateway
+  })
+  //console.log(data)
+  return data
 }
 
 export const _nupnp = async(url) => {
@@ -24,22 +26,36 @@ export const _nupnp = async(url) => {
     });
 };
 
-export const jshueDiscover = async(jshue) => {
-  let _bridges
+export const _myBridge = () => {
+  return require('../database/Database.jsx').read().config.dev.bridge.default
+}
 
-  await jshue.discover().then((bridges) => {
+export const jshueDiscover = async(jshue) => {
+  let _bridges = []
+
+  await jshue.discover()
+      .then((bridges) => {
+    
     if(bridges.length === 0) {
       console.error("No bridges found")
       return new Error("No bridges found")
     }
+
     bridges.forEach((bridge) => {
-      console.log(bridge);
+    
+      let _bridge = {
+        id: bridge.id,
+        ip: bridge.internalipaddress,
+        port: bridge.port
+      }
+    
+      bridges.push(_bridge)
+      console.log(_bridge);
     })
 
-    _bridges = bridges
+  })
+  .catch((error) => console.error(error))
 
-  }).catch((error) => console.error(error))
-  
   return _bridges
 }
 

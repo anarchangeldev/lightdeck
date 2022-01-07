@@ -13,21 +13,21 @@ export const BridgeItem = (props) => {
 }
 
 export const BridgeSelect = (props) => {
-  let bridgeItems = []
-  console.log(props);
-  console.log(props.bridges)
-  let bridges = useFetch(props.bridges)
-  console.log(bridges)
-  for(let i = 0; i < bridges.length; i++) {
-    bridgeItems.push(<BridgeItem bridge={bridges[i]} key={i}/>)
-  }
+  if(props.bridges.length === 0) return <p>no bridges</p>
   
+  console.log(props)
+  let bridgeItems = []
+  for(let i = 0; i < props.bridges.length; i++) {
+    console.log(props.bridges[i])
+    bridgeItems.push(<BridgeItem bridge={props.bridges[i]} key={i}/>)
+  }
+
   console.log(bridgeItems)
   
 
   return (
     <div className="bridge-select">
-      {bridgeItems[0]}
+      {bridgeItems}
     </div>
   )
 
