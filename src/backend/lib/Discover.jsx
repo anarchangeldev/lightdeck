@@ -41,18 +41,13 @@ export const jshueDiscover = async(jshue) => {
       return new Error("No bridges found")
     }
 
-    bridges.forEach((bridge) => {
-    
-      let _bridge = {
-        id: bridge.id,
+    _bridges = bridges.map((bridge) => {
+      return {
         ip: bridge.internalipaddress,
-        port: bridge.port
+        id: bridge.id.toUpperCase(),
+        port: bridge.port,
       }
-    
-      bridges.push(_bridge)
-      console.log(_bridge);
     })
-
   })
   .catch((error) => console.error(error))
 

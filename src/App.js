@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import * as api from './backend/Backend'
-import BridgeSelect from'./components/BridgeSelect'
+import BridgeSelect from'./components/BridgeSelect/BridgeSelect'
 /*
   ? animace Framer library
   ? bridge emulator: [http://steveyo.github.io/Hue-Emulator/] 
@@ -15,11 +15,9 @@ import BridgeSelect from'./components/BridgeSelect'
 function App() {
   const [bridges, setBridges ] = useState([])
   
-  
   useEffect(async() => {
-    setBridges(await api.discover('sim'))
+    setBridges(await api.discover())
     
-    //bridges = await api.discover()
     console.log(bridges);
 
   }, []) 
@@ -30,7 +28,7 @@ function App() {
       <header className="App-header">
       idk
       </header>
-      <BridgeSelect bridges={ [bridges] }/>
+      <BridgeSelect bridges={ bridges }/>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export const db = require('./database/Database.jsx')
 export const discover = async(mode) => {
     if(mode === 'dev') return disc._myBridge() 
     if(mode === 'sim') return disc._simulator()
-    return jshueDiscover(jshue)
+    return disc.jshueDiscover(jshue)
 }
 
 
