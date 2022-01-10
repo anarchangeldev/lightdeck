@@ -2,13 +2,17 @@ import icon from '../../resources/icon-hue-pwrbtn-rainbow.png'
 import React from 'react'
 import './BridgeItem.css'
 
-export const BridgeItem = ({ bridge }) => {
+export const BridgeItem = (props) => {
+    let info = (props.bridge.name === undefined) ? props.bridge.ip : props.bridge.name
+    
     return (
         <div className="container-center-horizontal">
-            <div className="bridge-itemscreen">
+            <div className="bridge-item screen">
                 <div className="container">
-                    <img className="icon" src={icon}/>
-                    <h1 className="namevalign-text-middle">{bridge.ip}</h1>
+                    <img className="icon" src={icon} />
+                    <h1 className="name valign-text-middle firasans-normal-nobel-26px">
+                         {info}
+                    </h1>
                 </div>
             </div>
         </div>

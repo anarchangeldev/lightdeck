@@ -4,7 +4,7 @@ import './BridgeSelect.css'
 
 
 export const BridgeSelect = (props) => {
-  if(props.bridges.length === 0) return <div className="list"> <p>no bridges</p> </div>
+  if(props.bridges.length === 0) return <div className="bridge-select"> <p>no bridges</p> </div>
   console.log(props.bridges);
   let bridgeItems = []
   for(let i = 0; i < props.bridges.length; i++) {
@@ -12,7 +12,7 @@ export const BridgeSelect = (props) => {
   }
   console.log(bridgeItems);
   return (
-    <div className="list">
+    <div className="bridge-select">
       {bridgeItems}
     </div>
   )

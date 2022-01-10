@@ -27,10 +27,10 @@ function App() {
   // runs only once, to repeat on each call remove [] or add variables to it to run only when they change
   return (
     <div className="App">
-      <header className="App-header">
-      idk
-      </header>
-      <BridgeSelect bridges={ bridges }/>
+        <BridgeSelect bridges={ bridges }/>
+
+      {/* <header className="App-header">
+      </header> */}
     </div>
   );
 }
