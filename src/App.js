@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import * as api from './backend/Backend'
 import BridgeSelect from'./components/BridgeSelect/BridgeSelect'
 /*
+  ? Figma
+  ? picture provider (unsplash)[unsplash.com] if needed
   ? animace Framer library
   ? bridge emulator: [http://steveyo.github.io/Hue-Emulator/] 
   ? RGB to CIE (x, y): [https://github.com/Shnoo/js-CIE-1931-rgb-color-converter]

@@ -1,18 +1,7 @@
 import React from 'react';
-import logo from '../../resources/icon-hue-pwrbtn-rainbow.png'
+import BridgeItem from '../BridgeItem/BridgeItem'
 import './BridgeSelect.css'
 
-export const BridgeItem = (props) => {
-  return (
-    <div className="item">
-        <div className="content">
-          <div className="logo"><img src={logo} alt='logo'/></div>
-          <p className="name">{props.bridge.id}</p>
-        </div>
-    </div>
-
-  )
-}
 
 export const BridgeSelect = (props) => {
   if(props.bridges.length === 0) return <div className="list"> <p>no bridges</p> </div>
