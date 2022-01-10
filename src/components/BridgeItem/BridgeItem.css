@@ -1,0 +1,62 @@
+.bridge-item {
+    align-items: flex-start;
+    display: flex;
+    width: 400px;
+}
+  
+.container {
+    align-items: center;
+    background-color: 
+  #252529;
+    border-radius: 50px;
+    display: flex;
+    height: 100px;
+    overflow: hidden;
+    padding: 12px 27px;
+    width: 400px;
+}
+  
+.icon {
+    align-self: flex-end;
+    height: 75px;
+    width: 75px;
+}
+  
+.name {
+    color: 
+  #b5b5b5;
+    font-family: var(--font-family-fira_sans);
+    font-size: var(--font-size-m);
+    font-weight: 400;
+    height: 74px;
+    letter-spacing: 0;
+    margin-left: 45px;
+    text-align: center;
+    width: 160px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400");
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+  
+.container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+  
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
