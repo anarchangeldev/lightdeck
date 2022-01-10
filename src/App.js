@@ -17,7 +17,7 @@ function App() {
   
   useEffect(async() => {
     setBridges(await api.discover())
-    
+    //setBridges(await api.discover('dev'))
     console.log(bridges);
 
   }, []) 

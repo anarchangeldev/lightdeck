@@ -38,7 +38,7 @@ export const jshueDiscover = async(jshue) => {
     
     if(bridges.length === 0) {
       console.error("No bridges found")
-      return new Error("No bridges found")
+      return []
     }
 
     _bridges = bridges.map((bridge) => {

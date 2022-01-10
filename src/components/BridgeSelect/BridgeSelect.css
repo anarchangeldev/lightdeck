@@ -1,54 +1,31 @@
-/* Item */
 
-.item {
+.list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    padding: 16px 24px;
 
+    position: relative;
+    width: 448px;
+    /* height: 384px; */
+}
+
+/* BridgeItem */
+.item {
     position: relative;
     width: 400px;
     height: 100px;
-}
-
-
-/* content */
-.content {
-    position: static;
-    width: 400px;
-    height: 100px;
-    left: 0px;
-    top: 0px;
 
     background: #252529;
     border-radius: 50px;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 10px 0px;
-}
-
-/* logo */
-.logo {
-    width:74.76px;
-    position: absolute;
-    left: 6.8%;
-    right: 74.51%;
-    top: 13%;
-    bottom: 12.53%;
-
-    background: url('../../resources/icon-hue-pwrbtn-rainbow.png');
-    border-radius: 46px;
 }
 
 /* name */
 .name {
     position: absolute;
-    left: 36.8%;
+    left: 28.8%;
     right: 23.2%;
-    top: 35%;
+    top: 25%;
     bottom: 34%;
 
     font-family: Fira Sans;
@@ -61,4 +38,23 @@
     text-align: center;
 
     color: #B6B6B6;
+}
+
+
+/* logo */
+.logo {
+    position: absolute;
+    left: 6.8%;
+    right: 74.51%;
+    top: 13%;
+    bottom: 12.53%;
+
+    background: url('../../resources/icon-hue-pwrbtn-rainbow.png');
+    border-radius: 46px;
+
+}
+
+.logo img {
+    max-width:100%;
+    max-height:100%;
 }

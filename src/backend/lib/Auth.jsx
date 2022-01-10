@@ -14,14 +14,14 @@ export const remoteConnect = () => {
         body: { linkbutton: true }, 
         headers: {
             Authorization: 'Bearer '+ authToken, 
-            'Content-Type': application/json
+            'Content-Type': 'application/json'
         }
     })
     axios.post(_url, {
         body: { devicetype:'lightdeck'},
         headers: { 
             Authorization: 'Bearer'+ authToken,
-            'Content-Type': application/json 
+            'Content-Type': 'application/json' 
         }
     })
 };
