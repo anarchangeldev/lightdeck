@@ -17,10 +17,13 @@ import BridgeSelect from'./components/BridgeSelect/BridgeSelect'
 function App() {
   const [bridges, setBridges ] = useState([])
   
-  useEffect(async() => {
-    setBridges(await api.discover())
-    //setBridges(await api.discover('dev'))
-    console.log(bridges);
+  useEffect(() => {
+    const getAsyncBridges = async () => {
+      let data = await api.discover()
+      setBridges(data)
+    }
+    
+    getAsyncBridges();
 
   }, []) 
   
@@ -33,6 +36,7 @@ function App() {
       </header> */}
     </div>
   );
+
 }
 
 export default App;
