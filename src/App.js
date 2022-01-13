@@ -1,7 +1,9 @@
 import './App.css';
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { Outlet, useNavigate} from 'react-router-dom'
 import * as api from './backend/Backend'
-import BridgeSelect from'./components/BridgeSelect/BridgeSelect'
+
+
 /*
   ? Figma
   ? picture provider (unsplash)[unsplash.com] if needed
@@ -13,29 +15,27 @@ import BridgeSelect from'./components/BridgeSelect/BridgeSelect'
 
   ! USE MUI - Material UI [https://mui.com] 
 */
-
+export let navigate
 function App() {
-  const [bridges, setBridges ] = useState([])
-  
-  useEffect(() => {
-    const getAsyncBridges = async () => {
-      let data = await api.discover()
-      setBridges(data)
-    }
-    
-    getAsyncBridges();
+	navigate = useNavigate()
+	
+	useEffect(() => {
+		const init = async() => {
+			await api.discover()			
+			if (api.user.bridge === undefined) 
+				navigate('/auth')
+   			else navigate('/home')
+		}
+		init()
+		
+	}, [api.user.bridge]) 
 
-  }, []) 
-  
-  // runs only once, to repeat on each call remove [] or add variables to it to run only when they change
-  return (
-    <div className="App">
-        <BridgeSelect bridges={ bridges }/>
-
-      {/* <header className="App-header">
-      </header> */}
-    </div>
-  );
+	
+	return (
+		<div className="App">
+			<Outlet/>
+    	</div>
+	);
 
 }
 

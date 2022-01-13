@@ -24,7 +24,6 @@ export const jshueDiscover = async(jshue) => {
             })
             .catch((error) => {console.error(error)})
   
-  console.log(_bridges)
   return _bridges
 }
 
@@ -44,7 +43,7 @@ const formatBridges = (bridges) => {
 }
 
 const noBridgesFailsafe = () => {
-    let config = require('../database/Database.jsx').read().config
+    let config = require('./config').config
 
     if(config.useSim) {
         console.warn("No bridges found, trying simulator")
@@ -65,7 +64,7 @@ const noBridgesFailsafe = () => {
 }
 
 export const _simulator = async(simConfig) => {
-    simConfig = (simConfig !== undefined) ? simConfig.dev.bridge.simulated : require('../database/Database.jsx').read().config.dev.bridge.simulated 
+    simConfig = (simConfig !== undefined) ? simConfig.dev.bridge.simulated : require('./config').config.dev.bridge.simulated 
     let url = simConfig.url + ':' + simConfig.port + '/api/newdeveloper'
 
     await axios.get(url).then((_data) => {
@@ -77,7 +76,7 @@ export const _simulator = async(simConfig) => {
 }
 
 export const _myBridge = (config) => {
-    return (bridge !== undefined) ? config.dev.bridge.default : require('../database/Database.jsx').read().config.dev.bridge.default
+    return (bridge !== undefined) ? config.dev.bridge.default : require('./config').config.dev.bridge.default
 }
 
 

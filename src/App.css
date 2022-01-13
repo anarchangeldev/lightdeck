@@ -1,7 +1,11 @@
 .App {
   text-align: center;
-}
 
+}
+body {
+  background-color: #4d4d4d
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,6 +27,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400");
+
+* {
+	font-family: 'FiraSans';
 }
 
 .App-link {
