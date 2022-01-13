@@ -11,14 +11,16 @@ import * as api from './backend/Backend'
   ? bridge emulator: [http://steveyo.github.io/Hue-Emulator/] 
   ? RGB to CIE (x, y): [https://github.com/Shnoo/js-CIE-1931-rgb-color-converter]
   ! JSHUE [https://github.com/blargoner/jshue/releases] //developed on 2.1.1
-
-
   ! USE MUI - Material UI [https://mui.com] 
+
+  TODO: Persistent bridge login
+  TODO: light on/off & basic color change
+
 */
 export let navigate
 function App() {
 	navigate = useNavigate()
-	
+
 	useEffect(() => {
 		const init = async() => {
 			await api.discover()			
