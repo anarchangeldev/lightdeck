@@ -44,6 +44,10 @@ export const saveUser = () => {
     setCookies('lightdeck', data.user, { path: '/'})
 }
 
+export const testUser = async() => {
+    return _auth.testClient(data.user.bridge.ip, data.user.credentials.username)
+}
+
 export const updateUser = () => {
     data.user = {...data.user, ...getCookies('lightdeck')}
 }

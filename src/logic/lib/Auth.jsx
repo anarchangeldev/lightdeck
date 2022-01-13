@@ -19,6 +19,16 @@ export const newClient = async(ip, devicetype, _iter) => {
     
 }
 
+export const testClient = async(ip, username) => {
+    let response = await axios.get('http://'+ip+'/api/'+username, null).catch(err => {console.error(err); return false})
+    if(!response) return response
+    
+    if(response.data.config !== undefined) return true
+
+    return false
+}
+
+
 export const createClient = async(ip, devicetype) => {
     return axios.post('http://'+ip+'/api', {devicetype: devicetype}).then(response => {
         if(response.status !== 200) {

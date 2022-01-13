@@ -36,10 +36,7 @@ function App() {
 			if(api.data.user.credentials.username === null || api.data.user.credentials.username === undefined) {
 				
 				api.auth(api.data.user.bridge)
-			} else {
-				
-				navigate('/home')
-			}
+			} else if (!api.testUser()) {init()} else {navigate('/home')} 
 		}
 
 		
