@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet, useNavigate} from 'react-router-dom'
 import * as api from './logic/Backend'
 
@@ -19,13 +19,14 @@ import * as api from './logic/Backend'
 */
 export let navigate
 function App() {
+
 	navigate = useNavigate()
 	useEffect(() => {
 		//api.removeCookies('lightdeck')
 		
 		api.updateUser()
 		api.light.rainbow(api.data.user.bridge.ip, api.data.user.credentials.username)
-
+		
 		const init = async() => {
 			
 			await api.discover()			

@@ -43,7 +43,7 @@ export const testLights = async(ip, username, state) => {
 
     while(true) {
         console.log(state.hue)
-        if(state.hue === 65500) state.hue = 0;
+        if(state.hue >= 65500) state.hue = 0;
         state.hue += 200 
 
         await new Promise(resolve => setTimeout(resolve, 50))
