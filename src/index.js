@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomePage from './components/HomePage/HomePage'
-import NotConnected from './components/bridge/NotConnected/NotConnected'
-import NotFound from './components/404/NotFound'
+import HomePage from './routes/HomePage/HomePage'
+import NotConnected from './routes/NotConnected/NotConnected'
+import NotFound from './routes/404/NotFound'
 import './index.css';
 import App from './App';
 

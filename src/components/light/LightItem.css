@@ -1,0 +1,111 @@
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Light Item */
+
+
+.light-item {
+    align-items: flex-start;
+    display: flex;
+    height: 100px;
+    position: relative;
+    width: 400px;
+    padding: 5px;
+    user-select: none;
+}
+  
+.container {
+    align-items: center;
+    background-color: #252529;
+    border-radius: 50px;
+    display: flex;
+    height: 100px;
+    overflow: hidden;
+    /* padding: 12px 27px; */
+    width: 400px;
+}
+
+.container > * {
+	transition: all .2s ease-in-out;
+
+}
+  
+.icon {
+    margin-left: 15px;
+    /* align-self: flex-end; */
+    height: 75px;
+    width: 75px;
+}
+
+.light-item:hover .icon {
+	transform: scale(0.9);
+}
+  
+.name {
+    height: 74px;
+    letter-spacing: 0;
+    margin-left: 45px;
+    text-align: center;
+    width: 160px;
+}
+
+.light-item:hover .name {
+	transform: scale(1.2)
+}
+  
+ 
+
+  
+.center-horizontal {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+}
+  
+.center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+  
+.valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.font {
+    color: rgba(181, 181, 181, 1);
+    /* font-family: 'Fira Sans'; */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.on-body-color {
+    background: #54963D;
+    box-shadow: -15px -29px 36px rgba(69, 65, 78, 0.35), 22px 33px 55px rgba(0, 0, 0, 0.75), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.on-dot-color {
+    background: #26252A;
+    box-shadow: 2px 0px 0px 1px rgba(0, 0, 0, 0.25), inset 0px 33px 42px rgba(0, 0, 0, 0.35), inset -8px -21px 22px rgba(103, 100, 113, 0.38);
+}
+
+.off-body-color {
+    background: #26252A;
+    box-shadow: -15px -29px 36px rgba(69, 65, 78, 0.35), 22px 33px 55px rgba(0, 0, 0, 0.75);
+}
+
+.off-dot-color {
+    background: #26252A;
+    box-shadow: inset 0px 33px 42px rgba(0, 0, 0, 0.35), inset -8px -21px 22px rgba(103, 100, 113, 0.38);
+}
+

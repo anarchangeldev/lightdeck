@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect } from 'react'
 import { Outlet, useNavigate} from 'react-router-dom'
-import * as api from './backend/Backend'
+import * as api from './logic/Backend'
 
 
 /*
@@ -22,15 +22,28 @@ function App() {
 	navigate = useNavigate()
 
 	useEffect(() => {
-		const init = async() => {
-			await api.discover()			
-			if (api.user.bridge === undefined) 
-				navigate('/auth')
-   			else navigate('/home')
-		}
-		init()
+		//api.removeCookies('lightdeck')
 		
-	}, [api.user.bridge]) 
+		api.updateUser()
+		const init = async() => {
+			
+			await api.discover()			
+			navigate('/auth')
+		}
+
+		if(api.data.user === undefined || api.data.user.bridge === null || api.data.user.bridge === undefined) init()
+		else {
+			if(api.data.user.credentials.username === null || api.data.user.credentials.username === undefined) {
+				
+				api.auth(api.data.user.bridge)
+			} else {
+				
+				navigate('/home')
+			}
+		}
+
+		
+	}, []) 
 
 	
 	return (

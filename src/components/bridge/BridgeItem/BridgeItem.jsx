@@ -1,4 +1,4 @@
-import icon from '../../../resources/icon-hue-pwrbtn-rainbow.png'
+import icon from '../../../resources/images/icon-hue-pwrbtn-rainbow.png'
 import React from 'react'
 import './BridgeItem.css'
 

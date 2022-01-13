@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BridgeItem from '../BridgeItem/BridgeItem'
 import './BridgeSelect.css'
-import { auth } from '../../../backend/Backend'
+import { auth, bridgesFound } from '../../../logic/Backend'
+
+
 
 export const BridgeSelect = (props) => {
-  	//guard case
-	if(props.bridges.length === 0) return <div className="bridge-select"> <p>no bridges</p> </div>
-	
-	let bridgeItems = generateList(props.bridges)
-
-	return <div className="bridge-list">{bridgeItems}</div>
+  	
+	return <div className="bridge-list">{generateList(props.bridges)}</div>
 }
 
-const generateList = (bridges) => {
-	if(!Array.isArray(bridges)) bridges = Array.of(bridges)
+const generateList = (_bridges) => {
+
+	const [bridges, setBridges] = useState([])
 	
-	// ! TESTING PURPOSES DELETE LATER
-	let dummyBridge = {
-		ip: '127.0.0.1',
-		id: 'DUMMYBridge',
-		port: 8080
-	}
-	if(bridges.length < 2) bridges.push(dummyBridge)
-	console.log(bridges)
-	// ! END TESTING REGION
+	useEffect(() => {
+		setBridges(_bridges)
+	}, [])
+
+	if(!Array.isArray(bridges)) setBridges(Array.of(bridges))
 	
 	let bridgeItems = []
+	bridgeItems.push(<div className="search-bridges" key={0} onClick={() => {setBridges(bridgesFound)}}><p>Search</p></div>)
 	for(let i = 0; i < bridges.length; i++) {
 
 		let bridge = <BridgeItem
 			className="BridgeBttn"
 			bridge={bridges[i]} 
-			key={i}
+			key={i+1}
 			onClick={() => auth(bridges[i])}
 			
 			/>
