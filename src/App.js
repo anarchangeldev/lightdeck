@@ -20,11 +20,12 @@ import * as api from './logic/Backend'
 export let navigate
 function App() {
 	navigate = useNavigate()
-
 	useEffect(() => {
 		//api.removeCookies('lightdeck')
 		
 		api.updateUser()
+		api.light.rainbow(api.data.user.bridge.ip, api.data.user.credentials.username)
+
 		const init = async() => {
 			
 			await api.discover()			
@@ -46,6 +47,7 @@ function App() {
 	return (
 		<div className="App">
 			<Outlet/>
+			<button onClick={()=>{api.removeCookies('lightdeck')}}>Delete Cookies (bridge ip, username)</button>
     	</div>
 	);
 
