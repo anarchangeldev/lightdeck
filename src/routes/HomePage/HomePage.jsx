@@ -3,7 +3,12 @@ import * as api from '../../logic/Backend'
 export const HomePage = (props) => {
 
     return (
-        <h1>{JSON.stringify(api.data.user.credentials.username)}</h1>
+        <div>
+            <h1>{JSON.stringify(api.data.user.credentials.username)}</h1>
+            <button onClick={()=>{api.light.switchState(api.data, 1)}}>SWITCH</button>
+			<button onClick={()=>{api.light.rainbow(api.data)}}>rainbow</button>
+        </div>
+        
     );
 
 }

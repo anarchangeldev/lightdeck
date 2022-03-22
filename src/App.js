@@ -25,7 +25,7 @@ function App() {
 		//api.removeCookies('lightdeck')
 		
 		api.updateUser()
-		api.light.rainbow(api.data.user.bridge.ip, api.data.user.credentials.username)
+		//api.light.rainbow(api.data.user.bridge.ip, api.data.user.credentials.username)
 		
 		const init = async() => {
 			
@@ -41,13 +41,14 @@ function App() {
 			} else if (!api.testUser()) {init()} else {navigate('/home')} 
 		}
 
-		
+
 	}, []) 
 
 	
 	return (
 		<div className="App">
 			<Outlet/>
+			
 			<button onClick={()=>{api.removeCookies('lightdeck')}}>Delete Cookies (bridge ip, username)</button>
     	</div>
 	);
