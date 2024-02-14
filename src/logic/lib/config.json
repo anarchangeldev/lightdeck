@@ -14,7 +14,7 @@
         "dev": {
             
             "credentials": {
-            	"username": "6UEjkaj3vRbmMstCOv47r6SIm2hpzDeHFW0UVY9D",
+            	"username": "SECRET :)",
             	"remote": {
             		"token": null,
                 	"clientID": null
@@ -23,9 +23,9 @@
 
             "bridge": {
             	"default": {
-					"ip": "192.168.0.136",
-					"id": "ecb5fafffe07db63",
-					"port": 443
+					"ip": "SECRET :)",
+					"id": "SECRET :)",
+					"port": 000
             	},
 				"simulated": {
 					"url": "http://localhost",
